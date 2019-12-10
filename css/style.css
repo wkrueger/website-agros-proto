@@ -1,0 +1,13 @@
+/* purgecss start ignore */
+@tailwind base;
+
+/* exemplo h1 { @apply text-xl; } */
+
+@tailwind components;
+/* purgecss end ignore */
+
+/* custom @apply here */
+
+@tailwind utilities;
+
+/* my utilities here */
