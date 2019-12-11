@@ -13,7 +13,14 @@ export const Page: React.SFC<PageProps> = i => {
   return (
     <section>
       <div className="_leading">
-        <div className="_bg-image" style={{ backgroundImage: i.bgImage }}></div>
+        <div
+          className="_bg-image"
+          style={{
+            backgroundImage: `url('${i.bgImage}')`,
+            height: "300px",
+            backgroundRepeat: "no-repeat"
+          }}
+        ></div>
         {i.titleType === "h1" ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
       </div>
       <div className="_content">{i.content}</div>
