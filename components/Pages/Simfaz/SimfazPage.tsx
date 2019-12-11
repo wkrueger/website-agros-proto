@@ -16,6 +16,7 @@ export function SimfazPage() {
     avaliando conformidade socioambiental de proprietários e de imóveis rurais."
       bgImage="/public/bg/bg-simfaz.png"
       content={content}
+      tag="socioambiental"
     />
   )
 }

@@ -1,5 +1,8 @@
 import Markdown from "react-markdown"
 import Link from "next/link"
+import { useEffect, useContext, useRef } from "react"
+import { mainContext } from "./Main"
+import throttle from "lodash/throttle"
 
 type PageProps = {
   title: string
@@ -7,11 +10,29 @@ type PageProps = {
   subtitle: string
   content: JSX.Element
   bgImage: string
+  tag?: string
 }
 
 export const Page: React.SFC<PageProps> = i => {
+  const ctx = useContext(mainContext)
+  const $section = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (!i.tag) return
+    const handler = throttle(() => {
+      const element = $section.current
+      if (element && elementInViewport(element)) {
+        console.log(i.tag, "im visible!")
+        ctx.emitter.emit("pageVisible", { tag: i.tag })
+      }
+    }, 300)
+    window.addEventListener("scroll", handler)
+    return () => {
+      window.removeEventListener("scroll", handler)
+    }
+  }, [])
+
   return (
-    <section>
+    <section ref={$section}>
       <div className="_leading">
         <div
           className="_bg-image"
@@ -84,4 +105,12 @@ export function ButtonsRow(i: ButtonsRowProps) {
       ))}
     </div>
   )
+}
+
+//or use verge.js
+function elementInViewport(ele: HTMLElement) {
+  const { top, bottom } = ele.getBoundingClientRect()
+  const vHeight = window.innerHeight || document.documentElement.clientHeight
+
+  return (top > 0 || bottom > 0) && top < vHeight
 }

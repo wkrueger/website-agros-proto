@@ -28,6 +28,7 @@ export function MonitoramentoPage() {
     compatível com resolução BACEN 4427"
       content={content}
       bgImage="/public/bg/bg-monitoramento.png"
+      tag="monitoramento"
     />
   )
 }

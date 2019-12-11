@@ -10,6 +10,7 @@ export function ContatoPage() {
       subtitle="Caso tenha ficado com alguma dúvida ou queira se tornar um cliente do SIMFaz, entre em contato conosco, utilizando o formulário ao lado:"
       bgImage="/public/bg/bg-contato.png"
       content={<ContactForm />}
+      tag="contato"
     >
       <div className="_social-media">
         <Link href="https://www.agrosatelite.com.br">

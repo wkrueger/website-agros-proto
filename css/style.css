@@ -11,3 +11,11 @@
 @tailwind utilities;
 
 /* my utilities here */
+.text-shadow-hover {
+  transition: all 0.3s;
+}
+
+.text-shadow-hover:hover {
+  /* color: black; */
+  text-shadow: 0 0 1px #8f8c87;
+}
