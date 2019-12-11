@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg149"
+   version="1.1"
+   viewBox="0 0 16.404167 16.404167"
+   height="16.404167mm"
+   width="16.404167mm">
+  <defs
+     id="defs143" />
+  <metadata
+     id="metadata146">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-83.268155,-153.48244)"
+     id="layer1">
+    <g
+       id="g20"
+       transform="matrix(0.26458333,0,0,0.26458333,76.653572,146.86786)">
+      <g
+         transform="translate(25,25)"
+         data-name="Elipse 270"
+         id="Elipse_270"
+         style="fill:none;stroke:#8f8c87;stroke-width:2.5">
+        <circle
+           id="circle15"
+           r="31"
+           cy="31"
+           cx="31"
+           style="stroke:none" />
+        <circle
+           id="circle17"
+           r="29.75"
+           cy="31"
+           cx="31"
+           style="fill:none" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,87.704162,156.65665)"
+       data-name="Retângulo 244"
+       id="Retângulo_244"
+       style="fill:none;stroke:#8f8c87;stroke-width:3;stroke-linejoin:round">
+      <rect
+         id="rect37"
+         height="37.827999"
+         width="28.971001"
+         x="0"
+         y="0"
+         style="stroke:none" />
+      <rect
+         id="rect39"
+         height="34.827999"
+         width="25.971001"
+         y="1.5"
+         x="1.5"
+         style="fill:none" />
+    </g>
+    <path
+       d="m 89.723992,159.9814 h 0.9345 l 0.62178,-1.29037 0.3556,1.29037 h 0.62256 l 0.31141,0.79984 0.35587,-0.80036 h 0.71146"
+       data-name="Caminho 336"
+       id="Caminho_336"
+       style="fill:none;stroke:#8f8c87;stroke-width:0.39687499;stroke-linecap:round" />
+    <line
+       x2="93.464661"
+       data-name="Linha 238"
+       id="Linha_238"
+       x1="89.899933"
+       y1="161.86259"
+       y2="161.86259"
+       style="fill:none;stroke:#8f8c87;stroke-width:0.39687499;stroke-linecap:round" />
+    <line
+       x2="93.464661"
+       data-name="Linha 239"
+       id="Linha_239"
+       x1="89.899933"
+       y1="163.97079"
+       y2="163.97079"
+       style="fill:none;stroke:#8f8c87;stroke-width:0.39687499;stroke-linecap:round" />
+  </g>
+</svg>

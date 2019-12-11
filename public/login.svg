@@ -1,0 +1,11 @@
+<svg id="login" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+  <g id="Elipse_264" data-name="Elipse 264" fill="none" stroke="#00a9a5" stroke-width="3">
+    <circle cx="16.5" cy="16.5" r="16.5" stroke="none"/>
+    <circle cx="16.5" cy="16.5" r="15" fill="none"/>
+  </g>
+  <g id="Elipse_265" data-name="Elipse 265" transform="translate(10 6)" fill="none" stroke="#00a9a5" stroke-width="2.5">
+    <circle cx="6.5" cy="6.5" r="6.5" stroke="none"/>
+    <circle cx="6.5" cy="6.5" r="5.25" fill="none"/>
+  </g>
+  <path id="Caminho_262" data-name="Caminho 262" d="M-203.5-139.262s-.2-8.968,9.194-9.194,9.053,9.194,9.053,9.194" transform="translate(211 167)" fill="none" stroke="#00a9a5" stroke-width="2.5"/>
+</svg>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16.404167mm"
+   height="16.404167mm"
+   viewBox="0 0 16.404167 16.404167"
+   version="1.1"
+   id="svg62"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="icone-aspectos-regionais.svg">
+  <defs
+     id="defs56" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="131"
+     inkscape:cy="-234.71429"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1880"
+     inkscape:window-height="1055"
+     inkscape:window-x="40"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata59">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-71.172917,-70.327678)">
+    <g
+       id="g12"
+       transform="matrix(0.26458333,0,0,0.26458333,64.558334,63.713095)">
+      <g
+         style="fill:none;stroke:#8f8c87;stroke-width:2"
+         transform="translate(25,25)"
+         data-name="Elipse 270"
+         id="Elipse_270">
+        <circle
+           style="stroke:none"
+           id="circle7"
+           r="31"
+           cy="31"
+           cx="31" />
+        <circle
+           style="fill:none"
+           id="circle9"
+           r="30"
+           cy="31"
+           cx="31" />
+      </g>
+    </g>
+    <g
+       id="Grupo_468"
+       data-name="Grupo 468"
+       transform="matrix(0.26458333,0,0,0.26458333,74.664094,74.15567)">
+      <path
+         style="fill:#8f8c87"
+         inkscape:connector-curvature="0"
+         id="Caminho_197"
+         data-name="Caminho 197"
+         d="M 9.649,0 A 9.649,9.649 0 0 1 19.3,9.649 C 19.3,14.978 11.51,27.4 9.649,27.4 7.788,27.4 0,14.978 0,9.649 A 9.649,9.649 0 0 1 9.649,0 Z"
+         transform="translate(7.72)" />
+      <g
+         style="fill:none"
+         id="Caminho_196"
+         data-name="Caminho 196"
+         transform="translate(0,13.385)">
+        <path
+           style="stroke:none"
+           inkscape:connector-curvature="0"
+           d="m 0,2.395 35.459,-6.31 v 23.15 L 0,24.96 Z"
+           id="path30" />
+        <path
+           style="fill:#8f8c87;stroke:none"
+           inkscape:connector-curvature="0"
+           d="M 32.959282,-0.930439 2.5000038,4.4893703 V 22.024212 L 32.959282,17.106709 V -0.930439 m 2.5,-2.984108 V 19.235462 L 3.8146973e-6,24.960192 V 2.3949432 Z"
+           id="path32" />
+      </g>
+    </g>
+  </g>
+</svg>
