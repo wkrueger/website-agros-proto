@@ -1,0 +1,5 @@
+O objetivo do serviço da análisesocioambiental é avaliar o atendimento aos critérios de conformidade socioambiental de proprietários e de imóveis rurais, com segurança, agilidade e garantia. Oferece um amplo checklist de consultas automáticas, que podem ser customizadas, levando em conta a política de compliance socioambientalde cada companhia. Os relatórios das consultas são auditáveis, o que significa que permanecem registradas as informações sobre o usuário que realizou a consulta, data e hora da consulta e dos dados avaliados, entre outras informações para fins de auditoria e validação dos resultados.
+
+Está disponível também na forma de API, o que significa que possui suporte para a integração com outros sistemas já utilizados pelos clientes SIMFaz.
+
+Possui suporte para a análise permanente de proprietários e imóveis rurais que possuam relacionamento comercial ativocom o cliente SIMFaz, oferecendo alertas diários para eventuais mudanças de status para a conformidade socioambiental.

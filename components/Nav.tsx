@@ -3,7 +3,7 @@ export function Nav() {
     <nav>
       <ul>
         <li>
-          <img src="/public/simfaz-svg-cortado.png" />
+          <img src="/public/simfaz-svg-cortado.svg" />
         </li>
         <li></li>
         <li>O sistema</li>

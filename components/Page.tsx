@@ -9,7 +9,7 @@ type PageProps = {
   bgImage: string
 }
 
-export function Page(i: PageProps) {
+export const Page: React.SFC<PageProps> = i => {
   return (
     <section>
       <div className="_leading">
@@ -17,6 +17,7 @@ export function Page(i: PageProps) {
         {i.titleType === "h1" ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
       </div>
       <div className="_content">{i.content}</div>
+      {i.children}
     </section>
   )
 }
@@ -49,8 +50,8 @@ type IconsRowProps = {
 export function IconsRow(i: IconsRowProps) {
   return (
     <div className="_iconsRow">
-      {i.icons.map(item => (
-        <figure className="_icon">
+      {i.icons.map((item, idx) => (
+        <figure className="_icon" key={idx}>
           <img src={item.icon} alt={item.text} />
           <figcaption>{item.text}</figcaption>
         </figure>
@@ -69,8 +70,8 @@ type ButtonsRowProps = {
 export function ButtonsRow(i: ButtonsRowProps) {
   return (
     <div className="_buttonsRow">
-      {i.buttons.map(line => (
-        <Link href={line.link}>
+      {i.buttons.map((line, idx) => (
+        <Link href={line.link} key={idx}>
           <button type="button">{line.text}</button>
         </Link>
       ))}
