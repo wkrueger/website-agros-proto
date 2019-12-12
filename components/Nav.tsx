@@ -1,23 +1,24 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext, MutableRefObject, useRef } from "react"
 import { SlideDown } from "react-slidedown"
 import "react-slidedown/lib/slidedown.css"
 import Link from "next/link"
 import classNames from "classnames"
-import { mainContext } from "./Main"
+import { HEADER_ITEMS, dispatchContext, stateContext } from "./Main"
+import { motion } from "framer-motion"
 
-const classes = {
-  headerItem: "block mt-4 lg:inline-block lg:mt-0 mr-4 text-shadow-hover"
-}
-
-export function Nav() {
+export function Nav(i: { innerRef?: MutableRefObject<any> }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-4">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <img style={{ width: "180px" }} src="/public/simfaz-svg-cortado.svg" />
+    <nav
+      className="container mx-auto flex items-center justify-between flex-wrap py-4"
+      ref={i.innerRef}
+    >
+      <div className="flex items-center flex-shrink-0 text-white pb-5">
+        <img style={{ width: "154px" }} src="/public/simfaz-svg-cortado.svg" />
       </div>
-      <div className="block lg:hidden">
+      {/* botão */}
+      <div className="block sm:hidden">
         <button
           className={
             "flex items-center px-3 py-2 border rounded border-gray text-gray hover:border-black"
@@ -27,49 +28,81 @@ export function Nav() {
           <MenuIcon />
         </button>
       </div>
-      <SlideDown className="w-full block flex-grow">{expanded && <HeaderItems />}</SlideDown>
+      {/* menu < 1024px */}
+      <SlideDown className="block lg:hidden w-full flex-grow">
+        {expanded && <HeaderItems className="" />}
+      </SlideDown>
+      {/* menu desktop */}
+      <div className="hidden lg:flex">
+        <HeaderItems className="p-3" />
+      </div>
+      {/* ícone usuário */}
+      <div className="">
+        <img src="/public/login.svg" alt="Login" />
+      </div>
     </nav>
   )
 }
 
-const HEADER_ITEMS = [
-  { label: "O Sistema", tag: "sistema" },
-  { label: "Diagnóstico", tag: "diagnostico" },
-  { label: "Monitoramento", tag: "monitoramento" },
-  { label: "Socioambiental", tag: "socioambiental" },
-  { label: "A Empresa", tag: "empresa" },
-  { label: "Contato", tag: "contato" }
-]
-
-const HeaderItems = () => {
-  const [activeItem, setActiveItem] = useState("")
-  const ctx = useContext(mainContext)
+export function InlineNav() {
+  const $rootRef = useRef<any>(null)
+  const dispatcher = useContext(dispatchContext)
   useEffect(() => {
-    // subscribe to "im visible" events
-    function handler(ev: GlobalEvents["pageVisible"]) {
-      setActiveItem(ev.tag)
-    }
-    ctx.emitter.on("pageVisible", handler)
+    const observer = new IntersectionObserver(([element]) => {
+      const onScreen = element.isIntersecting
+      dispatcher.navVisible({ navVisible: onScreen })
+    })
+    observer.observe($rootRef.current)
     return () => {
-      ctx.emitter.off("pageVisible", handler)
+      observer.disconnect()
     }
   }, [])
+  return <Nav innerRef={$rootRef} />
+}
+
+const variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+}
+
+export function FixedNav() {
+  const ctx = useContext(stateContext)
+
+  if (ctx.navVisible) return null
 
   return (
-    <div className="text-sm lg:flex-grow">
+    <motion.div
+      className="_fixed-nav fixed w-full bg-white"
+      initial="hidden"
+      animate="visible"
+      variants={variants}
+    >
+      <Nav />
+    </motion.div>
+  )
+}
+
+// const headerItemClass = "block mt-4 lg:inline-block lg:mt-0 mr-4 text-shadow-hover"
+
+const HeaderItems = (i: { className: string }) => {
+  const ctx = useContext(stateContext)
+
+  return (
+    <>
       {HEADER_ITEMS.map(item => (
         <Link key={item.tag} href={"#" + item.tag}>
           <a
             className={classNames(
-              classes.headerItem,
-              activeItem === item.tag && "text-cyan-selected"
+              i.className,
+              "text-sm text-shadow-hover uppercase",
+              ctx.visibleItem === item.tag && "text-cyan-selected"
             )}
           >
             {item.label}
           </a>
         </Link>
       ))}
-    </div>
+    </>
   )
 }
 

@@ -1,8 +1,7 @@
 import Markdown from "react-markdown"
 import Link from "next/link"
 import { useEffect, useContext, useRef } from "react"
-import { mainContext } from "./Main"
-import throttle from "lodash/throttle"
+import { dispatchContext } from "./Main"
 
 type PageProps = {
   title: string
@@ -14,20 +13,22 @@ type PageProps = {
 }
 
 export const Page: React.SFC<PageProps> = i => {
-  const ctx = useContext(mainContext)
+  const dispatch = useContext(dispatchContext)
   const $section = useRef<HTMLElement>(null)
+  const $state = useRef({ visible: false, observer: (null as any) as IntersectionObserver })
   useEffect(() => {
     if (!i.tag) return
-    const handler = throttle(() => {
-      const element = $section.current
-      if (element && elementInViewport(element)) {
-        console.log(i.tag, "im visible!")
-        ctx.emitter.emit("pageVisible", { tag: i.tag })
+    const observer = new IntersectionObserver(([target]) => {
+      const prevState = $state.current.visible
+      const currentState = target.isIntersecting
+      if (prevState !== currentState) {
+        dispatch.itemVisible({ tag: i.tag!, visible: currentState })
       }
-    }, 300)
-    window.addEventListener("scroll", handler)
+      $state.current.visible = currentState
+    })
+    observer.observe($section.current!)
     return () => {
-      window.removeEventListener("scroll", handler)
+      observer.disconnect()
     }
   }, [])
 
@@ -105,12 +106,4 @@ export function ButtonsRow(i: ButtonsRowProps) {
       ))}
     </div>
   )
-}
-
-//or use verge.js
-function elementInViewport(ele: HTMLElement) {
-  const { top, bottom } = ele.getBoundingClientRect()
-  const vHeight = window.innerHeight || document.documentElement.clientHeight
-
-  return (top > 0 || bottom > 0) && top < vHeight
 }

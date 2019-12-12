@@ -9,7 +9,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html id="simfaz_site">
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab&display=swap"

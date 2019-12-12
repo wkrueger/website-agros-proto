@@ -10,6 +10,11 @@
 
 @tailwind utilities;
 
+html#simfaz_site {
+  /* tamanho base (o sistema se baseia em rem's) */
+  font-size: 18pt;
+}
+
 /* my utilities here */
 .text-shadow-hover {
   transition: all 0.3s;

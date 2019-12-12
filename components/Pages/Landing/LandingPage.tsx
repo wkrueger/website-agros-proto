@@ -24,6 +24,7 @@ export function LandingPage() {
       titleType="h1"
       subtitle="Inovação tecnológica e inteligência geográfica a serviço do monitoramento remoto de imóveis e glebas rurais."
       content={content}
+      tag="sistema"
     />
   )
 }
