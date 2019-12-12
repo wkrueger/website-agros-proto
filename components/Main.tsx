@@ -13,25 +13,24 @@ export const dispatchContext = createContext<Main>(null as any)
 export const stateContext = createContext<Main["state"]>(null as any)
 
 export class Main extends React.Component {
+  visibleItems = {} as Record<string, number>
   state = {
-    visibleItems: [] as string[],
     visibleItem: "sistema",
     navVisible: true
   }
 
-  itemVisible = (i: { tag: string; visible: boolean }) => {
-    const state = this.state
-    const set = new Set(state.visibleItems)
-    if (i.visible) {
-      set.add(i.tag)
-    } else {
-      set.delete(i.tag)
-    }
-    const first = HEADER_ITEMS.find(item => set.has(item.tag))
-    this.setState({
-      visibleItems: Array.from(set),
-      visibleItem: first?.tag || ""
+  itemVisible = (i: { tag: string; ratio: number }) => {
+    this.visibleItems[i.tag] = i.ratio
+    const sorted = Object.entries(this.visibleItems).sort((a, b) => {
+      return b[1] - a[1]
     })
+    console.log("sorted", sorted)
+    const found = sorted[0]
+    if (found) {
+      this.setState({
+        visibleItem: found[0]
+      })
+    }
   }
 
   navVisible = ({ navVisible }: { navVisible: boolean }) => {

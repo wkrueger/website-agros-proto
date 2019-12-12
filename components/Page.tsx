@@ -15,25 +15,26 @@ type PageProps = {
 export const Page: React.SFC<PageProps> = i => {
   const dispatch = useContext(dispatchContext)
   const $section = useRef<HTMLElement>(null)
-  const $state = useRef({ visible: false, observer: (null as any) as IntersectionObserver })
   useEffect(() => {
     if (!i.tag) return
-    const observer = new IntersectionObserver(([target]) => {
-      const prevState = $state.current.visible
-      const currentState = target.isIntersecting
-      if (prevState !== currentState) {
-        dispatch.itemVisible({ tag: i.tag!, visible: currentState })
+    const observer = new IntersectionObserver(
+      ([target]) => {
+        const area = target.intersectionRect.height * target.intersectionRect.width
+        dispatch.itemVisible({ tag: i.tag!, ratio: area })
+      },
+      {
+        threshold: [0, 0.25, 0.5, 0.75, 1]
       }
-      $state.current.visible = currentState
-    })
+    )
     observer.observe($section.current!)
     return () => {
+      console.log("disconnect")
       observer.disconnect()
     }
   }, [])
 
   return (
-    <section ref={$section}>
+    <section ref={$section} id={i.tag}>
       <div className="_leading">
         <div
           className="_bg-image"
