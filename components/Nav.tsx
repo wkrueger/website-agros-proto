@@ -30,11 +30,11 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
       </div>
       {/* menu < 1024px */}
       <SlideDown className="block lg:hidden w-full flex-grow">
-        {expanded && <HeaderItems className="" />}
+        {expanded && <HeaderItems className="" stacked />}
       </SlideDown>
       {/* menu desktop */}
-      <div className="hidden lg:flex">
-        <HeaderItems className="p-3" />
+      <div className="_desktop_menu hidden lg:flex">
+        <HeaderItems className="p-3" stacked={false} />
       </div>
       {/* ícone usuário */}
       <div className="">
@@ -84,7 +84,7 @@ export function FixedNav() {
 
 // const headerItemClass = "block mt-4 lg:inline-block lg:mt-0 mr-4 text-shadow-hover"
 
-const HeaderItems = (i: { className: string }) => {
+const HeaderItems = (i: { className: string; stacked: boolean }) => {
   const ctx = useContext(stateContext)
 
   return (
@@ -95,7 +95,8 @@ const HeaderItems = (i: { className: string }) => {
             className={classNames(
               i.className,
               "text-sm text-shadow-hover uppercase",
-              ctx.visibleItem === item.tag && "text-cyan-selected"
+              ctx.visibleItem === item.tag && "text-cyan-selected",
+              !i.stacked && item.className
             )}
           >
             {item.label}

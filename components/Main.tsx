@@ -70,6 +70,6 @@ export const HEADER_ITEMS = [
   { label: "Diagnóstico", tag: "diagnostico" },
   { label: "Monitoramento", tag: "monitoramento" },
   { label: "Socioambiental", tag: "socioambiental" },
-  { label: "A Empresa", tag: "empresa" },
-  { label: "Contato", tag: "contato" }
+  { label: "A Empresa", tag: "empresa", className: "hidden xl:block" },
+  { label: "Contato", tag: "contato", className: "hidden xl:block" }
 ]
