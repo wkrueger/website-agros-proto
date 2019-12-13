@@ -49,19 +49,19 @@ export const Page: React.SFC<PageProps> = i => {
       <div className="_row _main w-full flex flex-grow">
         <div
           className={classNames(
-            '_leading w-8/12 border relative flex flex-col pr-2',
+            '_leading w-8/12 relative flex flex-col pr-2',
             i.titleType === 'h1' ? 'justify-center' : 'justify-end'
           )}
         >
           <img
             src={i.bgImage}
-            className={classNames('absolute max-w-none right-0 top-0', i.bgImageClass)}
+            className={classNames('absolute max-w-none right-1 top-0', i.bgImageClass)}
             style={{ zIndex: -1 }}
           />
           {i.titleType === 'h1' ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
           <h4>{i.subtitle}</h4>
         </div>
-        <div className="_content w-4/12 flex flex-col justify-end px-2">{i.content}</div>
+        <div className="_content w-4/12 flex flex-col justify-end pl-2">{i.content}</div>
       </div>
       {i.buttonsRow && (
         <div className="_row w-full flex">
