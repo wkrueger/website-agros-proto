@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 8000",
+    "static": "next export"
   },
   "dependencies": {
     "@types/classnames": "^2.2.9",

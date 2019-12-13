@@ -4,15 +4,59 @@
 /* exemplo h1 { @apply text-xl; } */
 
 @tailwind components;
-/* purgecss end ignore */
 
 /* custom @apply here */
 
+h1,
+h2 {
+  @apply uppercase;
+  font-size: 100px;
+  line-height: 117px;
+}
+
+h1 {
+  @apply text-title-blue; /* color */
+}
+
+h4 {
+  @apply font-serif;
+  font-size: 31px;
+  line-height: 46px;
+  margin-top: 32px;
+}
+
+p {
+  @apply leading-loose; /* line height 2 */
+  margin-bottom: 1.5rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+._buttonsRow {
+  font-size: 14px;
+}
+
+._buttonsRow button {
+  transition: all 0.2s;
+}
+
+._buttonsRow button:hover {
+  @apply border-cyan-selected;
+  @apply text-cyan-selected;
+  box-shadow: inset 0px 0px 0px 1px #00a9a5; /* border-radius não anima direito */
+}
+
+/* purgecss end ignore */
+
 @tailwind utilities;
+
+/* purgecss start ignore */
 
 html#simfaz_site {
   /* tamanho base (o sistema se baseia em rem's) */
-  font-size: 18pt;
+  font-size: 18px;
 }
 
 /* my utilities here */
@@ -24,3 +68,27 @@ html#simfaz_site {
   /* color: black; */
   text-shadow: 0 0 1px #8f8c87;
 }
+
+/* o preprecessador adiciona variantes sm: lg: md: etc... */
+@responsive {
+  .max-w-none {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .landing-bg {
+    right: unset;
+    left: 0;
+  }
+}
+
+#empresa ._leading {
+  height: 1090px;
+}
+
+section {
+  margin-bottom: 15rem;
+}
+
+/* purgecss end ignore */

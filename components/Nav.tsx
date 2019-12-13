@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext, MutableRefObject, useRef } from "react"
-import { SlideDown } from "react-slidedown"
-import "react-slidedown/lib/slidedown.css"
-import Link from "next/link"
-import classNames from "classnames"
-import { HEADER_ITEMS, dispatchContext, stateContext } from "./Main"
-import { motion } from "framer-motion"
+import React, { useState, useEffect, useContext, MutableRefObject, useRef } from 'react'
+import { SlideDown } from 'react-slidedown'
+import 'react-slidedown/lib/slidedown.css'
+import Link from 'next/link'
+import classNames from 'classnames'
+import { HEADER_ITEMS, dispatchContext, stateContext } from './Main'
+import { motion } from 'framer-motion'
 
 export function Nav(i: { innerRef?: MutableRefObject<any> }) {
   const [expanded, setExpanded] = useState(false)
@@ -15,13 +15,13 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
       ref={i.innerRef}
     >
       <div className="flex items-center flex-shrink-0 text-white pb-5">
-        <img style={{ width: "154px" }} src="/public/simfaz-svg-cortado.svg" />
+        <img style={{ width: '154px' }} src="/public/simfaz-svg-cortado.svg" />
       </div>
       {/* botão */}
-      <div className="block sm:hidden">
+      <div className="block lg:hidden">
         <button
           className={
-            "flex items-center px-3 py-2 border rounded border-gray text-gray hover:border-black"
+            'flex items-center px-3 py-2 border rounded border-gray text-gray hover:border-black'
           }
           onClick={() => setExpanded(!expanded)}
         >
@@ -29,15 +29,15 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
         </button>
       </div>
       {/* menu < 1024px */}
-      <SlideDown className="block lg:hidden w-full flex-grow">
-        {expanded && <HeaderItems className="" stacked />}
+      <SlideDown className="flex flex-wrap lg:hidden w-full flex-grow">
+        {expanded && <HeaderItems className="block mr-6 mb-4" stacked />}
       </SlideDown>
       {/* menu desktop */}
       <div className="_desktop_menu hidden lg:flex">
         <HeaderItems className="p-3" stacked={false} />
       </div>
       {/* ícone usuário */}
-      <div className="">
+      <div className="hidden lg:block">
         <img src="/public/login.svg" alt="Login" />
       </div>
     </nav>
@@ -72,7 +72,7 @@ export function FixedNav() {
 
   return (
     <motion.div
-      className="_fixed-nav fixed w-full bg-white"
+      className="_fixed-nav fixed w-full bg-white z-50"
       initial="hidden"
       animate="visible"
       variants={variants}
@@ -86,17 +86,17 @@ export function FixedNav() {
 
 const HeaderItems = (i: { className: string; stacked: boolean }) => {
   const ctx = useContext(stateContext)
-  console.log("visible", ctx.visibleItem)
+  console.log('visible', ctx.visibleItem)
 
   return (
     <>
       {HEADER_ITEMS.map(item => (
-        <Link key={item.tag} href={"#" + item.tag}>
+        <Link key={item.tag} href={'#' + item.tag}>
           <a
             className={classNames(
               i.className,
-              "text-sm text-shadow-hover uppercase",
-              ctx.visibleItem === item.tag && "text-cyan-selected",
+              'text-sm text-shadow-hover uppercase',
+              ctx.visibleItem === item.tag && 'text-cyan-selected',
               !i.stacked && item.className
             )}
           >

@@ -1,5 +1,5 @@
-import { Page, Content, ButtonsRow, IconsRow } from "../../Page"
-import contentTextMd from "./DiagnosticoPageContent.md"
+import { Page, Content, ButtonsRow, IconsRow } from '../../Page'
+import contentTextMd from './DiagnosticoPageContent.md'
 
 export function DiagnosticoPage() {
   const content = (
@@ -8,16 +8,15 @@ export function DiagnosticoPage() {
       iconsRow={
         <IconsRow
           icons={[
-            { text: "Aspectos Regionais", icon: "/public/icon/icone-socioambiental.svg" },
+            { text: 'Aspectos<br/>Regionais', icon: '/public/icon/icone-socioambiental.svg' },
             {
-              text: "Características Físicas do Imóvel",
-              icon: "/public/icon/icone-caracteristicas-imovel.svg"
+              text: 'Características Físicas do Imóvel',
+              icon: '/public/icon/icone-caracteristicas-imovel.svg'
             },
-            { text: "Informações do Mercado", icon: "/public/icon/icone-informacoes-mercado.svg" }
+            { text: 'Informações do Mercado', icon: '/public/icon/icone-informacoes-mercado.svg' }
           ]}
         />
       }
-      buttonsRow={<ButtonsRow buttons={[{ text: "Mais informações", link: "#" }]} />}
     />
   )
 
@@ -28,6 +27,7 @@ export function DiagnosticoPage() {
       subtitle="Conheça melhor o potencial do seu cliente. Minimize os riscos ao tomar imóveis em garantia. Crie mais oportunidades de baixo risco!"
       content={content}
       tag="diagnostico"
+      buttonsRow={<ButtonsRow buttons={[{ text: 'Mais informações', link: '#' }]} />}
     />
   )
 }

@@ -1,5 +1,5 @@
-import { Page, Content, IconsRow, ButtonsRow } from "../../Page"
-import mdcontent from "./MonitoramentoPageContent.md"
+import { Page, Content, IconsRow, ButtonsRow } from '../../Page'
+import mdcontent from './MonitoramentoPageContent.md'
 
 export function MonitoramentoPage() {
   const content = (
@@ -8,16 +8,15 @@ export function MonitoramentoPage() {
       iconsRow={
         <IconsRow
           icons={[
-            { text: "De Plantio", icon: "/public/icon/icone-de-plantio.svg" },
+            { text: 'De Plantio<br/>&nbsp;', icon: '/public/icon/icone-de-plantio.svg' },
             {
-              text: "Desenvolvimento da Lavoura",
-              icon: "/public/icon/icone-desenvolvimento-da-lavoura.svg"
+              text: 'Desenvolvimento da Lavoura',
+              icon: '/public/icon/icone-desenvolvimento-da-lavoura.svg'
             },
-            { text: "Colheita", icon: "/public/icon/icone-colheita.svg" }
+            { text: 'Colheita<br/>&nbsp;', icon: '/public/icon/icone-colheita.svg' }
           ]}
         />
       }
-      buttonsRow={<ButtonsRow buttons={[{ text: "Mais informações", link: "#" }]} />}
     />
   )
 
@@ -29,6 +28,7 @@ export function MonitoramentoPage() {
       content={content}
       bgImage="/public/bg/bg-monitoramento.png"
       tag="monitoramento"
+      buttonsRow={<ButtonsRow buttons={[{ text: 'Mais informações', link: '#' }]} />}
     />
   )
 }

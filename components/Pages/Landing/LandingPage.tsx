@@ -1,5 +1,5 @@
-import { Page, Content, IconsRow } from "../../Page"
-import contentText from "./LandingPageContent.md"
+import { Page, Content, IconsRow } from '../../Page'
+import contentText from './LandingPageContent.md'
 
 export function LandingPage() {
   const content = (
@@ -8,9 +8,9 @@ export function LandingPage() {
       iconsRow={
         <IconsRow
           icons={[
-            { text: "Diagnóstico", icon: "/public/icon/icone-diagnostico.svg" },
-            { text: "Monitoramento", icon: "/public/icon/icone-monitoramento.svg" },
-            { text: "Socioambiental", icon: "/public/icon/icone-socioambiental.svg" }
+            { text: 'Diagnóstico', icon: '/public/icon/icone-diagnostico.svg' },
+            { text: 'Monitoramento', icon: '/public/icon/icone-monitoramento.svg' },
+            { text: 'Socioambiental', icon: '/public/icon/icone-socioambiental.svg' }
           ]}
         />
       }
@@ -25,6 +25,7 @@ export function LandingPage() {
       subtitle="Inovação tecnológica e inteligência geográfica a serviço do monitoramento remoto de imóveis e glebas rurais."
       content={content}
       tag="sistema"
+      bgImageClass="landing-bg"
     />
   )
 }
