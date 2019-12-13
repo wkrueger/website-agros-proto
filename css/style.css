@@ -74,6 +74,9 @@ html#simfaz_site {
   .max-w-none {
     max-width: none;
   }
+  .flex-grow-2 {
+    flex-grow: 2;
+  }
 }
 
 @media (min-width: 1280px) {

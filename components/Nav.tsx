@@ -17,6 +17,8 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
       <div className="flex items-center flex-shrink-0 text-white pb-5">
         <img style={{ width: '154px' }} src="/public/simfaz-svg-cortado.svg" />
       </div>
+      {/* grow 1 - desktop */}
+      <div className="hidden lg:block flex-grow-2"></div>
       {/* botão */}
       <div className="block lg:hidden">
         <button
@@ -34,8 +36,10 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
       </SlideDown>
       {/* menu desktop */}
       <div className="_desktop_menu hidden lg:flex">
-        <HeaderItems className="p-3" stacked={false} />
+        <HeaderItems className="px-6" stacked={false} />
       </div>
+      {/* grow - dektop */}
+      <div className="hidden lg:block flex-grow"></div>
       {/* ícone usuário */}
       <div className="hidden lg:block">
         <img src="/public/login.svg" alt="Login" />
