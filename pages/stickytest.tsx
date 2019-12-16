@@ -3,11 +3,10 @@ import { useRef, useState, useEffect, FunctionComponent, cloneElement } from 're
 import { motion, useTransform, useViewportScroll } from 'framer-motion'
 
 export default function Main() {
-  const [height] = useState(900)
   const $contentBlock = useRef<HTMLDivElement>(null)
   const $stickyBlock = useRef<HTMLDivElement>(null)
-  const [opacitySlices, setOpacitySlices] = useState(makeSlices(0, height, 6))
-  const [positions, setPositions] = useState({ contentTop: 0, contentBottom: height, stickyTop: 0 })
+  const [opacitySlices, setOpacitySlices] = useState(makeSlices(0, 900, 6))
+  const [positions, setPositions] = useState({ contentTop: 0, contentBottom: 900, stickyTop: 0 })
   useEffect(() => {
     const contentTop = $contentBlock.current?.offsetTop!
     const contentBottom = contentTop + $contentBlock.current?.offsetHeight!
@@ -139,8 +138,6 @@ function blurOpacityFn2(start, end, transition) {
 
 function blurOpacityFn3(start, end, transition) {
   const points = transitionPoints(start, end, transition)
-  const down = linear(points[2], points[3], 1, 0)
-  const up = linear(points[4], points[5], 0, 1)
   return x => {
     if (x <= points[1]) return 0
     if (x >= points[6]) return 0

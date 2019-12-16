@@ -90,7 +90,6 @@ export function FixedNav() {
 
 const HeaderItems = (i: { className: string; stacked: boolean }) => {
   const ctx = useContext(stateContext)
-  console.log('visible', ctx.visibleItem)
 
   return (
     <>

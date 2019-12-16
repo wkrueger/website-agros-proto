@@ -82,12 +82,12 @@ html#simfaz_site {
   }
 }
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .landing-bg {
     right: unset;
     left: 0;
   }
-}
+} */
 
 #empresa ._leading {
   height: 1090px;

@@ -1,16 +1,16 @@
-import Markdown from 'react-markdown'
 import Link from 'next/link'
-import { useEffect, useContext, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
+import Markdown from 'react-markdown'
 import { dispatchContext } from './Main'
-import classNames from 'classnames'
+import { Titles } from './Pages/Titles'
 
-type PageProps = {
+export type PageProps = {
   title: string
   titleType?: 'h1' | 'h2'
   subtitle: string
   content: JSX.Element
   bgImage: string
-  tag?: string
+  tag: string
   bgImageClass?: string
   sectionStyle?: React.CSSProperties
   buttonsRow?: JSX.Element
@@ -19,6 +19,8 @@ type PageProps = {
 export const Page: React.SFC<PageProps> = i => {
   const dispatch = useContext(dispatchContext)
   const $section = useRef<HTMLElement>(null)
+
+  // scroll observer
   useEffect(() => {
     if (!i.tag) return
     const observer = new IntersectionObserver(
@@ -37,38 +39,25 @@ export const Page: React.SFC<PageProps> = i => {
     }
   }, [])
 
-  const sectionStyle = { minHeight: '996px', ...(i.sectionStyle || {}) }
+  // send title page
+  useEffect(() => {
+    const top = $section.current?.offsetTop!
+    const bottom = $section.current?.offsetTop! + $section.current?.offsetHeight!
+    const page = <Titles {...i} top={top} bottom={bottom} />
+    dispatch.registerSlide({ key: i.tag, page, top, bottom })
+  }, [])
+
+  const sectionStyle = { minHeight: '996px', marginBottom: '400px', ...(i.sectionStyle || {}) }
 
   return (
     <section
       ref={$section}
       id={i.tag}
-      className="container mx-auto flex flex-col"
+      className="flex flex-col justify-end pl-2"
       style={sectionStyle}
     >
-      <div className="_row _main w-full flex flex-grow">
-        <div
-          className={classNames(
-            '_leading w-8/12 relative flex flex-col pr-2',
-            i.titleType === 'h1' ? 'justify-center' : 'justify-end'
-          )}
-        >
-          <img
-            src={i.bgImage}
-            className={classNames('absolute max-w-none right-1 top-0', i.bgImageClass)}
-            style={{ zIndex: -1 }}
-          />
-          {i.titleType === 'h1' ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
-          <h4>{i.subtitle}</h4>
-        </div>
-        <div className="_content w-4/12 flex flex-col justify-end pl-2">{i.content}</div>
-      </div>
-      {i.buttonsRow && (
-        <div className="_row w-full flex">
-          <div className="w-8/12" />
-          <div className="w-4/12">{i.buttonsRow}</div>
-        </div>
-      )}
+      {i.content}
+      {i.buttonsRow}
     </section>
   )
 }
