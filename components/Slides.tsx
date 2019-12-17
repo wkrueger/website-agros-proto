@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import throttle from 'lodash/throttle'
 import { stateContext } from './Main'
 
 export interface TitleSlide {
@@ -49,24 +48,19 @@ export class Slides extends React.Component<{ size: number }> {
 
   render() {
     if (!this.state.ready) return null
-    return (
-      <stateContext.Consumer>
-        {ctx => {
-          return this.pages.map(page => {
-            if (!(page.key === ctx.visibleItem)) return null
-            return (
-              <motion.div
-                className="absolute h-full w-full"
-                key={page.key}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                {page.page}
-              </motion.div>
-            )
-          })
-        }}
-      </stateContext.Consumer>
-    )
+
+    return this.pages.map(page => {
+      //if (!(page.key === ctx.visibleItem)) return null
+      return (
+        <motion.div
+          className="absolute h-full w-full"
+          key={page.key}
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+        >
+          {page.page}
+        </motion.div>
+      )
+    })
   }
 }

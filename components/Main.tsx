@@ -1,13 +1,13 @@
-import '../css/style.css'
-import { Nav, InlineNav, FixedNav } from './Nav'
 import Head from 'next/head'
-import { LandingPage } from './Pages/Landing/LandingPage'
+import React, { createContext, createRef } from 'react'
+import '../css/style.css'
+import { FixedNav, InlineNav } from './Nav'
+import { ContatoPage } from './Pages/Contato/ContatoPage'
 import { DiagnosticoPage } from './Pages/Diagnostico/DiagnosticoPage'
+import { EmpresaPage } from './Pages/Empresa/EmpresaPage'
+import { LandingPage } from './Pages/Landing/LandingPage'
 import { MonitoramentoPage } from './Pages/Monitoramento/MonitoramentoPage'
 import { SimfazPage } from './Pages/Simfaz/SimfazPage'
-import { EmpresaPage } from './Pages/Empresa/EmpresaPage'
-import { ContatoPage } from './Pages/Contato/ContatoPage'
-import React, { useReducer, useState, createContext, createRef } from 'react'
 import { Slides, TitleSlide } from './Slides'
 
 export const dispatchContext = createContext<Main>(null as any)
@@ -53,6 +53,7 @@ export class Main extends React.Component {
               <title>SIMFAZ - Sistema de Monitoramento de Fazendas</title>
             </Head>
             {/* nav */}
+            <YRuler />
             <FixedNav />
             <InlineNav />
             {/* pages */}
@@ -76,6 +77,19 @@ export class Main extends React.Component {
       </dispatchContext.Provider>
     )
   }
+}
+
+function YRuler() {
+  const out = [] as JSX.Element[]
+  for (let x = 0; x < 50; x++) {
+    out.push(
+      <div style={{ height: '100px', border: 'solid 1px black' }} key={x}>
+        {x * 100}
+      </div>
+    )
+  }
+
+  return <div style={{ position: 'absolute' }}>{out}</div>
 }
 
 export const HEADER_ITEMS = [

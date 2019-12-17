@@ -5,9 +5,11 @@ import { useState, cloneElement, FunctionComponent } from 'react'
 
 export function Titles(i: PageProps & { top: number; bottom: number }) {
   const { scrollY } = useViewportScroll()
-  const [opacitySlices] = useState(makeSlices(i.top - 300, i.bottom - 150, 6))
-  const textOpacity = useTransform(scrollY, opacitySlices, [1, 1, 1, 1, 1, 1, 1])
-  const textY = useTransform(scrollY, [i.top - 300, i.bottom], [0, -50])
+  const vh = window.innerHeight
+  console.log(i.tag, i.top, i.bottom)
+  const [opacitySlices] = useState(makeSlices(i.top - vh, i.bottom - vh, 6))
+  const textOpacity = useTransform(scrollY, opacitySlices, [0, 1, 1, 1, 1, 1, 0])
+  const textY = useTransform(scrollY, [i.top - vh, i.bottom - vh], [0, -150])
 
   console.log(i.tag, i.top, i.bottom)
 
@@ -18,23 +20,23 @@ export function Titles(i: PageProps & { top: number; bottom: number }) {
         className="_blurGroup relative"
         style={{ zIndex: -1, height: '900px' }}
         pixels={10}
-        start={i.top}
-        end={i.bottom}
+        start={i.top - vh}
+        end={i.bottom - vh}
         transition={100}
       >
         <motion.img
           src={i.bgImage}
-          className={classNames('absolute max-w-none top-0', i.bgImageClass)}
+          className={classNames('absolute max-w-none top-0 right-0', i.bgImageClass)}
           style={{ zIndex: -1 }}
         />
       </BlurGroup>
-      {/* <motion.div
+      <motion.div
         className="_titles-text"
         style={{ marginBottom: '5rem', opacity: textOpacity, y: textY }}
       >
         {i.titleType === 'h1' ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
         <h4>{i.subtitle}</h4>
-      </motion.div> */}
+      </motion.div>
     </div>
   )
 }

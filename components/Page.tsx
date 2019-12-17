@@ -41,13 +41,18 @@ export const Page: React.SFC<PageProps> = i => {
 
   // send title page
   useEffect(() => {
-    const top = $section.current?.offsetTop!
-    const bottom = $section.current?.offsetTop! + $section.current?.offsetHeight!
+    const top = absoluteTop($section.current!) + 110
+    const bottom = $section.current?.offsetTop! + $section.current?.offsetHeight! + 110
     const page = <Titles {...i} top={top} bottom={bottom} />
     dispatch.registerSlide({ key: i.tag, page, top, bottom })
   }, [])
 
-  const sectionStyle = { minHeight: '996px', marginBottom: '400px', ...(i.sectionStyle || {}) }
+  const sectionStyle = {
+    minHeight: '996px',
+    paddingTop: '0px',
+    paddingBottom: '500px',
+    ...(i.sectionStyle || {})
+  }
 
   return (
     <section
@@ -128,4 +133,13 @@ export function ButtonsRow(i: ButtonsRowProps) {
       ))}
     </div>
   )
+}
+
+const absoluteTop = element => {
+  let offsetTop = 0
+  while (element) {
+    offsetTop += element.offsetTop
+    element = element.offsetParent
+  }
+  return offsetTop
 }
