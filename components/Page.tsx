@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useContext, useEffect, useRef } from 'react'
 import Markdown from 'react-markdown'
 import { dispatchContext } from './Main'
-import { Titles } from './Pages/Titles'
+import { Titles } from './Titles'
 
 export type PageProps = {
   title: string

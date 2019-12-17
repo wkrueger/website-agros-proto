@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { PageProps } from '../Page'
+import { PageProps } from './Page'
 import { useViewportScroll, useTransform, motion } from 'framer-motion'
 import { useState, cloneElement, FunctionComponent } from 'react'
 
@@ -15,8 +15,8 @@ export function Titles(i: PageProps & { top: number; bottom: number }) {
     <div className="_titles flex flex-col h-full justify-center">
       <BlurGroup
         page={i.tag}
-        className="absolute top-0 w-full"
-        style={{ zIndex: -1 }}
+        className="_blurGroup relative"
+        style={{ zIndex: -1, height: '900px' }}
         pixels={10}
         start={i.top}
         end={i.bottom}
@@ -24,17 +24,17 @@ export function Titles(i: PageProps & { top: number; bottom: number }) {
       >
         <motion.img
           src={i.bgImage}
-          className={classNames('absolute max-w-none right-1 top-0', i.bgImageClass)}
+          className={classNames('absolute max-w-none top-0', i.bgImageClass)}
           style={{ zIndex: -1 }}
         />
       </BlurGroup>
-      <motion.div
+      {/* <motion.div
         className="_titles-text"
         style={{ marginBottom: '5rem', opacity: textOpacity, y: textY }}
       >
         {i.titleType === 'h1' ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
         <h4>{i.subtitle}</h4>
-      </motion.div>
+      </motion.div> */}
     </div>
   )
 }
