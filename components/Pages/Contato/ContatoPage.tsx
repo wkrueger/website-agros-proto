@@ -1,4 +1,4 @@
-import { Page } from '../../Page'
+import { Page, ButtonsRow } from '../../Page'
 import { useFormik } from 'formik'
 import { FormHelper } from '../../_common/FormHelper'
 import Link from 'next/link'
@@ -45,25 +45,29 @@ export function ContactForm() {
   const h = new FormHelper(bag)
 
   return (
-    <div className="_contact_form">
+    <div className="_contact-form">
       <form onSubmit={bag.handleSubmit}>
         <div className="_field">
           <label htmlFor="nome">Nome</label>
-          <input type="text" {...h.bindInput('nome')} />
+          <input type="text" placeholder="Nome" {...h.bindInput('nome')} />
         </div>
         <div className="_field">
           <label htmlFor="email">Email</label>
-          <input type="email" {...h.bindInput('email')} />
+          <input type="email" placeholder="Email" {...h.bindInput('email')} />
         </div>
         <div className="_field">
           <label htmlFor="assunto">Assunto</label>
-          <input type="text" {...h.bindInput('assunto')} />
+          <input type="text" placeholder="Assunto" {...h.bindInput('assunto')} />
         </div>
-        <div className="_field">
+        <div className="_field _ta">
           <label htmlFor="mensagem"></label>
-          <textarea {...h.bindInput('mensagem')}></textarea>
+          <textarea
+            placeholder="Mensagem"
+            style={{ height: '6rem', resize: 'none' }}
+            {...h.bindInput('mensagem')}
+          ></textarea>
         </div>
-        <button type="submit">Enviar</button>
+        <ButtonsRow buttons={[{ type: 'submit', text: 'Enviar', link: '#contato' }]} />
       </form>
     </div>
   )

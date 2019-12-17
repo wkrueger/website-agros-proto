@@ -64,29 +64,25 @@ export function InlineNav() {
   return <Nav innerRef={$rootRef} />
 }
 
-// const variants = {
-//   hidden: { opacity: 0 },
-//   visible: { opacity: 1 }
-// }
-
 export function FixedNav() {
-  const ctx = useContext(stateContext)
-
-  // if (ctx.navVisible) return null
-
   return (
-    <div
-      className="_fixed-nav fixed w-full z-50"
-      // initial="hidden"
-      // animate="visible"
-      // variants={variants}
-    >
+    <div className="_fixed-nav fixed w-full z-50">
       <Nav />
     </div>
   )
 }
 
-// const headerItemClass = "block mt-4 lg:inline-block lg:mt-0 mr-4 text-shadow-hover"
+export function FixedNavBg() {
+  return (
+    <div
+      className="fixed w-full"
+      style={{
+        height: '110px',
+        background: 'linear-gradient(white 0%, white 85%, transparent 100%)'
+      }}
+    ></div>
+  )
+}
 
 const HeaderItems = (i: { className: string; stacked: boolean }) => {
   const ctx = useContext(stateContext)

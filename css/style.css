@@ -48,6 +48,36 @@ p:last-child {
   box-shadow: inset 0px 0px 0px 1px #00a9a5; /* border-radius não anima direito */
 }
 
+._contact-form {
+  ._field {
+    ::placeholder {
+      @apply text-gray-default;
+    }
+
+    @apply border-b border-gray-default py-2 flex items-end;
+    &:not(._ta) {
+      height: 60px;
+    }
+
+    label {
+      display: none;
+    }
+    input,
+    textarea {
+      @apply w-full;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+/*
+<input class="appearance-none bg-transparent border-none w-full 
+text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" 
+type="text" placeholder="Jane Doe" aria-label="Full name">
+*/
+
 /* purgecss end ignore */
 
 @tailwind utilities;

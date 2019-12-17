@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { createContext, createRef } from 'react'
 import '../css/style.css'
-import { FixedNav, InlineNav } from './Nav'
+import { FixedNav, InlineNav, FixedNavBg } from './Nav'
 import { ContatoPage } from './Pages/Contato/ContatoPage'
 import { DiagnosticoPage } from './Pages/Diagnostico/DiagnosticoPage'
 import { EmpresaPage } from './Pages/Empresa/EmpresaPage'
@@ -54,9 +54,10 @@ export class Main extends React.Component {
             </Head>
             {/* nav */}
             <YRuler />
+            <FixedNavBg />
             <FixedNav />
             {/* pages */}
-            <main className="container mx-auto flex">
+            <main className="container mx-auto flex" style={{ zIndex: -1 }}>
               <div className="_leadingcol w-8/12">
                 <div className="sticky top-0 h-screen">
                   <Slides size={6} ref={this.slidesRef} />

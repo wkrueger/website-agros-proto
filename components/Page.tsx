@@ -3,6 +3,7 @@ import { useContext, useEffect, useRef } from 'react'
 import Markdown from 'react-markdown'
 import { dispatchContext } from './Main'
 import { Titles } from './Titles'
+import { type } from 'os'
 
 export type PageProps = {
   title: string
@@ -114,6 +115,7 @@ export function IconsRow(i: IconsRowProps) {
 
 type ButtonsRowProps = {
   buttons: {
+    type?: string
     text: string
     link: string
   }[]
@@ -125,7 +127,7 @@ export function ButtonsRow(i: ButtonsRowProps) {
       {i.buttons.map((line, idx) => (
         <Link href={line.link} key={idx}>
           <button
-            type="button"
+            type={(line.type as any) || 'button'}
             className="border border-gray-default rounded uppercase"
             style={{ width: '227px', height: '64px' }}
           >
