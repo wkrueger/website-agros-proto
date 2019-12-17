@@ -29,6 +29,7 @@ export function Titles(i: PageProps & { top: number; bottom: number }) {
           <motion.img
             src={i.bgImage}
             className={classNames('absolute max-w-none top-0 right-0', i.bgImageClass)}
+            alt="background"
           />
         </BlurGroup>
       </div>

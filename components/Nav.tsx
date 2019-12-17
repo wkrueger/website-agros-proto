@@ -15,7 +15,7 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
       ref={i.innerRef}
     >
       <div className="flex items-center flex-shrink-0 text-white pb-5">
-        <img className="_logo" src="/public/simfaz-svg-cortado.svg" />
+        <img className="_logo" src="/public/simfaz-svg-cortado.svg" alt="Simfaz Logo" />
       </div>
       {/* grow 1 - desktop */}
       <div className="hidden lg:block flex-grow-2"></div>
