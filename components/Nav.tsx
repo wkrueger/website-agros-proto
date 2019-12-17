@@ -11,11 +11,11 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
 
   return (
     <nav
-      className="container mx-auto flex items-center justify-between flex-wrap py-4"
+      className="container mx-auto flex items-center justify-between flex-wrap py-4 px-4 lg:px-0"
       ref={i.innerRef}
     >
       <div className="flex items-center flex-shrink-0 text-white pb-5">
-        <img style={{ width: '154px' }} src="/public/simfaz-svg-cortado.svg" />
+        <img className="_logo" src="/public/simfaz-svg-cortado.svg" />
       </div>
       {/* grow 1 - desktop */}
       <div className="hidden lg:block flex-grow-2"></div>
@@ -31,7 +31,7 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
         </button>
       </div>
       {/* menu < 1024px */}
-      <SlideDown className="flex flex-wrap lg:hidden w-full flex-grow">
+      <SlideDown className="flex flex-wrap lg:hidden w-full flex-grow bg-white">
         {expanded && <HeaderItems className="block mr-6 mb-4" stacked />}
       </SlideDown>
       {/* menu desktop */}

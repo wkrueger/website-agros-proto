@@ -45,6 +45,28 @@ export function Titles(i: PageProps & { top: number; bottom: number }) {
   )
 }
 
+export function TitlesSm(i: PageProps) {
+  return (
+    <div
+      className="_titlesSm mt-40 mb-5"
+      style={{
+        backgroundImage: `url(${i.bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPositionY: 'top',
+        paddingBottom: '20rem',
+        marginBottom: '-18rem'
+      }}
+    >
+      {i.titleType === 'h1' ? (
+        <h1 className="overflow-x-auto">{i.title}</h1>
+      ) : (
+        <h2 className="overflow-x-auto">{i.title}</h2>
+      )}
+      <h4 className="overflow-x-auto">{i.subtitle}</h4>
+    </div>
+  )
+}
+
 function makeSlices(from: number, to: number, nrSlices: number) {
   const out = [] as number[]
   const slSize = (to - from) / nrSlices

@@ -53,17 +53,18 @@ export class Main extends React.Component {
               <title>SIMFAZ - Sistema de Monitoramento de Fazendas</title>
             </Head>
             {/* nav */}
-            <YRuler />
             <FixedNavBg />
             <FixedNav />
             {/* pages */}
-            <main className="container mx-auto flex" style={{ zIndex: -1 }}>
-              <div className="_leadingcol w-8/12">
-                <div className="sticky top-0 h-screen">
-                  <Slides size={6} ref={this.slidesRef} />
+            <main className="container mx-auto flex px-4 lg:px-0" style={{ zIndex: -1 }}>
+              {
+                <div className="_leadingcol hidden lg:block lg:w-6/12 xl:w-7/12 xxl:w-8/12 pr-3">
+                  <div className="sticky top-0 h-screen">
+                    <Slides size={1} ref={this.slidesRef} />
+                  </div>
                 </div>
-              </div>
-              <div className="_contentcol w-4/12">
+              }
+              <div className="_contentcol lg:w-6/12 xl:w-5/12 xxl:w-4/12 overflow-hidden">
                 <LandingPage />
                 <DiagnosticoPage />
                 <MonitoramentoPage />

@@ -10,8 +10,21 @@
 h1,
 h2 {
   @apply uppercase;
-  font-size: 100px;
-  line-height: 117px;
+  @media (min-width: 1640px) {
+    font-size: 100px;
+    line-height: 117px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 80px;
+    line-height: 90px;
+  }
+  font-size: 55px;
+  line-height: 68px;
+
+  @media (max-width: 640px) {
+    font-size: 40px;
+    line-height: 45px;
+  }
 }
 
 h1 {
@@ -19,10 +32,21 @@ h1 {
 }
 
 h4 {
-  @apply font-serif;
-  font-size: 31px;
-  line-height: 46px;
   margin-top: 32px;
+  @apply font-serif;
+  @media (min-width: 1640px) {
+    font-size: 31px;
+    line-height: 46px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 27px;
+    line-height: 40px;
+  }
+  font-size: 20px;
+  line-height: 26px;
+  @media (max-width: 1024px) {
+    background-color: rgb(255, 255, 255, 0.8);
+  }
 }
 
 p {
@@ -123,3 +147,57 @@ html#simfaz_site {
   height: 1090px;
 }
 /* purgecss end ignore */
+
+@media (min-width: 1023px) {
+  section {
+    padding-bottom: 500px;
+  }
+}
+
+._content-text {
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
+._logo {
+  width: 154px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: unset;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  ._logo {
+    width: 120px;
+  }
+  ._content-text p {
+    word-break: break-word;
+    font-size: 15px;
+  }
+  ._iconsRow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  figure {
+    max-width: 140px;
+    margin-bottom: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    img {
+      width: 44px;
+    }
+    figcaption {
+      font-size: 12px;
+    }
+  }
+  h1,
+  h2 {
+    font-size: 34px;
+  }
+}
+
+._iconsRow {
+  overflow: auto;
+}

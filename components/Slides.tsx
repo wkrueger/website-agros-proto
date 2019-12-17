@@ -13,17 +13,16 @@ export class Slides extends React.Component<{ size: number }> {
   pages = [] as TitleSlide[]
 
   state = {
-    ready: false
+    ready: false,
+    enabled: true
     // currentPage: ''
   }
 
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this.checkPage)
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this.checkPage)
-  // }
+  componentDidMount() {
+    if (window.innerWidth < 1024) {
+      this.setState({ enabled: false })
+    }
+  }
 
   registerSlide(i: TitleSlide) {
     this.pages.push(i)
@@ -48,6 +47,7 @@ export class Slides extends React.Component<{ size: number }> {
 
   render() {
     if (!this.state.ready) return null
+    if (!this.state.enabled) return null
 
     return this.pages.map(page => {
       //if (!(page.key === ctx.visibleItem)) return null

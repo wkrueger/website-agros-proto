@@ -45,7 +45,7 @@ export function ContactForm() {
   const h = new FormHelper(bag)
 
   return (
-    <div className="_contact-form">
+    <div className="_contact-form mb-40">
       <form onSubmit={bag.handleSubmit}>
         <div className="_field">
           <label htmlFor="nome">Nome</label>

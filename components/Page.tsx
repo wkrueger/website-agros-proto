@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import Markdown from 'react-markdown'
 import { dispatchContext } from './Main'
-import { Titles } from './Titles'
-import { type } from 'os'
+import { Titles, TitlesSm } from './Titles'
 
 export type PageProps = {
   title: string
@@ -21,6 +20,7 @@ export type PageProps = {
 export const Page: React.SFC<PageProps> = i => {
   const dispatch = useContext(dispatchContext)
   const $section = useRef<HTMLElement>(null)
+  const [isSmall, setIsSmall] = useState(false)
 
   // scroll observer
   useEffect(() => {
@@ -43,6 +43,7 @@ export const Page: React.SFC<PageProps> = i => {
 
   // send title page
   useEffect(() => {
+    setIsSmall(window.innerWidth < 1024)
     const top = absoluteTop($section.current!) + 110
     const bottom = $section.current?.offsetTop! + $section.current?.offsetHeight! + 110
     const page = <Titles {...i} top={top} bottom={bottom} />
@@ -52,7 +53,6 @@ export const Page: React.SFC<PageProps> = i => {
   const sectionStyle = {
     minHeight: '996px',
     paddingTop: '0px',
-    paddingBottom: '500px',
     ...(i.sectionStyle || {})
   }
 
@@ -60,9 +60,10 @@ export const Page: React.SFC<PageProps> = i => {
     <section
       ref={$section}
       id={i.tag}
-      className="flex flex-col justify-end pl-2"
+      className="flex flex-col justify-end lg:pl-2"
       style={sectionStyle}
     >
+      {isSmall && <TitlesSm {...i} />}
       {i.content}
       {i.buttonsRow}
     </section>
@@ -78,7 +79,9 @@ export function Content({ contentMd, iconsRow, ...rest }: ContentProps & Record<
   return (
     <>
       <div className="_content-text" {...rest}>
-        <div style={{ height: '200px' }}>&nbsp;</div>
+        <div className="hidden lg:block" style={{ height: '200px' }}>
+          &nbsp;
+        </div>
         <Markdown source={contentMd} />
         {iconsRow || null}
       </div>
@@ -97,7 +100,7 @@ export function IconsRow(i: IconsRowProps) {
   return (
     <div className="_iconsRow flex justify-between text-sm uppercase items-end">
       {i.icons.map((item, idx) => (
-        <figure className="_icon flex flex-col justify-center items-center w-1/3" key={idx}>
+        <figure className="_icon flex flex-col justify-center items-center lg:w-1/3" key={idx}>
           <img src={item.icon} alt={item.text} />
           <figcaption
             className="py-2 text-center"
