@@ -96,11 +96,14 @@ p:last-child {
   }
 }
 
-/*
-<input class="appearance-none bg-transparent border-none w-full 
-text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" 
-type="text" placeholder="Jane Doe" aria-label="Full name">
-*/
+._fixednav {
+  height: 110px;
+}
+@media (max-width: 1024px) {
+  ._fixednav {
+    height: 80px;
+  }
+}
 
 /* purgecss end ignore */
 

@@ -11,10 +11,10 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
 
   return (
     <nav
-      className="container mx-auto flex items-center justify-between flex-wrap py-4 px-4 lg:px-0"
+      className="container mx-auto flex items-center justify-between flex-wrap py-2 lg:py-4 px-4 lg:px-0"
       ref={i.innerRef}
     >
-      <div className="flex items-center flex-shrink-0 text-white pb-5">
+      <div className="flex items-center flex-shrink-0 text-white lg:pb-5">
         <img className="_logo" src="/public/simfaz-svg-cortado.svg" alt="Simfaz Logo" />
       </div>
       {/* grow 1 - desktop */}
@@ -23,7 +23,7 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
       <div className="block lg:hidden">
         <button
           className={
-            'flex items-center px-3 py-2 border rounded border-gray text-gray hover:border-black'
+            'flex items-center px-3 py-2 border rounded border-gray text-gray hover:border-black mt-3 lg:mt-0'
           }
           onClick={() => setExpanded(!expanded)}
         >
@@ -31,7 +31,7 @@ export function Nav(i: { innerRef?: MutableRefObject<any> }) {
         </button>
       </div>
       {/* menu < 1024px */}
-      <SlideDown className="flex flex-wrap lg:hidden w-full flex-grow bg-white">
+      <SlideDown className="flex flex-wrap lg:hidden w-full flex-grow bg-white pt-3">
         {expanded && <HeaderItems className="block mr-6 mb-4" stacked />}
       </SlideDown>
       {/* menu desktop */}
@@ -73,15 +73,7 @@ export function FixedNav() {
 }
 
 export function FixedNavBg() {
-  return (
-    <div
-      className="fixed w-full"
-      style={{
-        height: '110px',
-        background: 'linear-gradient(white 0%, white 85%, transparent 100%)'
-      }}
-    ></div>
-  )
+  return <div className="_fixednav fixed w-full bg-white"></div>
 }
 
 const HeaderItems = (i: { className: string; stacked: boolean }) => {
