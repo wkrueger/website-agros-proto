@@ -23,6 +23,7 @@ export function DiagnosticoPage() {
   return (
     <Page
       bgImage="/public/bg/bg-diagnostico.png"
+      bgImageHeight={1080}
       title="Diagnóstico"
       subtitle="Conheça melhor o potencial do seu cliente. Minimize os riscos ao tomar imóveis em garantia. Crie mais oportunidades de baixo risco!"
       content={content}

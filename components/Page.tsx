@@ -10,8 +10,9 @@ export type PageProps = {
   subtitle: string
   content: JSX.Element
   bgImage: string
-  tag: string
+  bgImageHeight: number
   bgImageClass?: string
+  tag: string
   sectionStyle?: React.CSSProperties
   buttonsRow?: JSX.Element
 }
@@ -72,12 +73,13 @@ type ContentProps = {
   iconsRow?: JSX.Element
 }
 
-export function Content(i: ContentProps) {
+export function Content({ contentMd, iconsRow, ...rest }: ContentProps & Record<string, any>) {
   return (
     <>
-      <div className="_content-text">
-        <Markdown source={i.contentMd} />
-        {i.iconsRow || null}
+      <div className="_content-text" {...rest}>
+        <div style={{ height: '200px' }}>&nbsp;</div>
+        <Markdown source={contentMd} />
+        {iconsRow || null}
       </div>
     </>
   )

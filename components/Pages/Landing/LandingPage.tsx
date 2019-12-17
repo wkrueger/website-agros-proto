@@ -20,6 +20,7 @@ export function LandingPage() {
   return (
     <Page
       bgImage="/public/bg/bg-landing.png"
+      bgImageHeight={900}
       title="Sistema de Monitoramento de Fazendas"
       titleType="h1"
       subtitle="Inovação tecnológica e inteligência geográfica a serviço do monitoramento remoto de imóveis e glebas rurais."

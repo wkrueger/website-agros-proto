@@ -55,11 +55,10 @@ export class Main extends React.Component {
             {/* nav */}
             <YRuler />
             <FixedNav />
-            <InlineNav />
             {/* pages */}
             <main className="container mx-auto flex">
               <div className="_leadingcol w-8/12">
-                <div className="sticky top-0 h-screen" style={{ border: 'solid 1px red' }}>
+                <div className="sticky top-0 h-screen">
                   <Slides size={6} ref={this.slidesRef} />
                 </div>
               </div>

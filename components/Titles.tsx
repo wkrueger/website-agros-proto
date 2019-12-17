@@ -6,38 +6,43 @@ import { useState, cloneElement, FunctionComponent } from 'react'
 export function Titles(i: PageProps & { top: number; bottom: number }) {
   const { scrollY } = useViewportScroll()
   const vh = window.innerHeight
-  console.log(i.tag, i.top, i.bottom)
-  const [opacitySlices] = useState(makeSlices(i.top - vh, i.bottom - vh, 6))
-  const textOpacity = useTransform(scrollY, opacitySlices, [0, 1, 1, 1, 1, 1, 0])
-  const textY = useTransform(scrollY, [i.top - vh, i.bottom - vh], [0, -150])
+  const sliceEnd = i.tag === 'sistema' ? 0 : 200
+  const firstSlice = i.tag === 'sistema' ? 1 : 0
+  const [opacitySlices] = useState(makeSlices(Math.max(i.top - vh), i.bottom - vh, 6))
+  const textOpacity = useTransform(scrollY, opacitySlices, [firstSlice, 1, 1, 1, 1, 1, 0])
+  const textY = useTransform(scrollY, [Math.max(i.top - vh, 0), i.bottom - vh], [0, -150])
 
-  console.log(i.tag, i.top, i.bottom)
+  const textJustify = i.tag === 'sistema' ? 'justify-center' : 'justify-end mb-20'
 
   return (
-    <div className="_titles flex flex-col h-full justify-center">
-      <BlurGroup
-        page={i.tag}
-        className="_blurGroup relative"
-        style={{ zIndex: -1, height: '900px' }}
-        pixels={10}
-        start={i.top - vh}
-        end={i.bottom - vh}
-        transition={100}
-      >
-        <motion.img
-          src={i.bgImage}
-          className={classNames('absolute max-w-none top-0 right-0', i.bgImageClass)}
-          style={{ zIndex: -1 }}
-        />
-      </BlurGroup>
-      <motion.div
-        className="_titles-text"
-        style={{ marginBottom: '5rem', opacity: textOpacity, y: textY }}
-      >
-        {i.titleType === 'h1' ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
-        <h4>{i.subtitle}</h4>
-      </motion.div>
-    </div>
+    <>
+      <div className="_imageGroup absolute h-full w-full flex flex-col justify-center">
+        <BlurGroup
+          page={i.tag}
+          className="_blurGroup relative"
+          style={{ zIndex: -1, height: i.bgImageHeight + 'px' }}
+          pixels={10}
+          start={i.top - vh}
+          end={i.bottom - vh + 100}
+          transition={100}
+        >
+          <motion.img
+            src={i.bgImage}
+            className={classNames('absolute max-w-none top-0 right-0', i.bgImageClass)}
+            style={{ zIndex: -1 }}
+          />
+        </BlurGroup>
+      </div>
+      <div className="_textGroup absolute h-full w-full flex flex-col justify-center">
+        <motion.div
+          className={classNames('flex flex-col', textJustify)}
+          style={{ height: 950 + 'px', opacity: textOpacity, y: textY }}
+        >
+          {i.titleType === 'h1' ? <h1>{i.title}</h1> : <h2>{i.title}</h2>}
+          <h4>{i.subtitle}</h4>
+        </motion.div>
+      </div>
+    </>
   )
 }
 

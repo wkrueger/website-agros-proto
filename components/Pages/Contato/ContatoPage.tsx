@@ -1,7 +1,7 @@
-import { Page } from "../../Page"
-import { useFormik } from "formik"
-import { FormHelper } from "../../_common/FormHelper"
-import Link from "next/link"
+import { Page } from '../../Page'
+import { useFormik } from 'formik'
+import { FormHelper } from '../../_common/FormHelper'
+import Link from 'next/link'
 
 export function ContatoPage() {
   return (
@@ -9,6 +9,7 @@ export function ContatoPage() {
       title="Contato"
       subtitle="Caso tenha ficado com alguma dúvida ou queira se tornar um cliente do SIMFaz, entre em contato conosco, utilizando o formulário ao lado:"
       bgImage="/public/bg/bg-contato.png"
+      bgImageHeight={1080}
       content={<ContactForm />}
       tag="contato"
     >
@@ -34,10 +35,10 @@ export function ContatoPage() {
 export function ContactForm() {
   const bag = useFormik({
     initialValues: {
-      nome: "",
-      email: "",
-      assunto: "",
-      mensagem: ""
+      nome: '',
+      email: '',
+      assunto: '',
+      mensagem: ''
     },
     onSubmit: values => {}
   })
@@ -48,19 +49,19 @@ export function ContactForm() {
       <form onSubmit={bag.handleSubmit}>
         <div className="_field">
           <label htmlFor="nome">Nome</label>
-          <input type="text" {...h.bindInput("nome")} />
+          <input type="text" {...h.bindInput('nome')} />
         </div>
         <div className="_field">
           <label htmlFor="email">Email</label>
-          <input type="email" {...h.bindInput("email")} />
+          <input type="email" {...h.bindInput('email')} />
         </div>
         <div className="_field">
           <label htmlFor="assunto">Assunto</label>
-          <input type="text" {...h.bindInput("assunto")} />
+          <input type="text" {...h.bindInput('assunto')} />
         </div>
         <div className="_field">
           <label htmlFor="mensagem"></label>
-          <textarea {...h.bindInput("mensagem")}></textarea>
+          <textarea {...h.bindInput('mensagem')}></textarea>
         </div>
         <button type="submit">Enviar</button>
       </form>

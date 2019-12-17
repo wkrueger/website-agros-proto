@@ -27,6 +27,7 @@ export function MonitoramentoPage() {
     compatível com resolução BACEN 4427"
       content={content}
       bgImage="/public/bg/bg-monitoramento.png"
+      bgImageHeight={1080}
       tag="monitoramento"
       buttonsRow={<ButtonsRow buttons={[{ text: 'Mais informações', link: '#' }]} />}
     />

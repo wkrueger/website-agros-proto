@@ -64,25 +64,25 @@ export function InlineNav() {
   return <Nav innerRef={$rootRef} />
 }
 
-const variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 }
-}
+// const variants = {
+//   hidden: { opacity: 0 },
+//   visible: { opacity: 1 }
+// }
 
 export function FixedNav() {
   const ctx = useContext(stateContext)
 
-  if (ctx.navVisible) return null
+  // if (ctx.navVisible) return null
 
   return (
-    <motion.div
-      className="_fixed-nav fixed w-full bg-white z-50"
-      initial="hidden"
-      animate="visible"
-      variants={variants}
+    <div
+      className="_fixed-nav fixed w-full z-50"
+      // initial="hidden"
+      // animate="visible"
+      // variants={variants}
     >
       <Nav />
-    </motion.div>
+    </div>
   )
 }
 
