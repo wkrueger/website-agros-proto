@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { stateContext } from './Main'
+import classNames from 'classnames'
 
 export interface TitleSlide {
   key: string
@@ -53,7 +54,7 @@ export class Slides extends React.Component<{ size: number }> {
       //if (!(page.key === ctx.visibleItem)) return null
       return (
         <motion.div
-          className="absolute h-full w-full"
+          className={classNames('_slide absolute h-full w-full', page.key)}
           key={page.key}
           // initial={{ opacity: 0 }}
           // animate={{ opacity: 1 }}

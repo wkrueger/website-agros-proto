@@ -24,7 +24,7 @@ export function MonitoramentoPage() {
     <Page
       title="Monitoramento"
       subtitle="Usufrua de informações chaves sobre a conformidade e o desempenho produtivo das lavouras penhoradas
-    compatível com resolução BACEN 4427"
+    compatível com resolução BACEN 4427."
       content={content}
       bgImage="/public/bg/bg-monitoramento.png"
       bgImageHeight={1080}

@@ -49,13 +49,15 @@ export function Titles(i: PageProps & { top: number; bottom: number }) {
 export function TitlesSm(i: PageProps) {
   return (
     <div
-      className="_titlesSm mt-40 mb-5"
+      className="_titlesSm mb-5"
       style={{
         backgroundImage: `url(${i.bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPositionY: 'top',
-        paddingBottom: '20rem',
-        marginBottom: '-18rem'
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        paddingBottom: '2rem',
+        paddingTop: '20rem',
+        marginTop: '-4rem'
       }}
     >
       {i.titleType === 'h1' ? (

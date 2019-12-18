@@ -34,13 +34,13 @@ h1 {
 h4 {
   margin-top: 32px;
   @apply font-serif;
-  @media (min-width: 1640px) {
-    font-size: 31px;
-    line-height: 46px;
-  }
   @media (min-width: 1280px) {
     font-size: 27px;
     line-height: 40px;
+  }
+  @media (min-width: 1640px) {
+    font-size: 31px;
+    line-height: 46px;
   }
   font-size: 20px;
   line-height: 26px;
@@ -203,4 +203,33 @@ html#simfaz_site {
 
 ._iconsRow {
   overflow: auto;
+}
+
+@media (min-width: 1280px) {
+  ._slide.sistema ._blurGroup {
+    right: 180px;
+  }
+  h4 {
+    max-width: 890px;
+  }
+}
+
+._slide.diagnostico ._blurGroup {
+  right: -100px;
+}
+._slide.monitoramento ._blurGroup {
+  right: -40px;
+}
+._slide.socioambiental ._blurGroup {
+  right: 100px;
+}
+._slide.contato ._blurGroup {
+  right: -400px;
+  @media (max-width: 1640px) {
+    right: -800px;
+  }
+}
+
+._leadingcol {
+  z-index: -1;
 }
