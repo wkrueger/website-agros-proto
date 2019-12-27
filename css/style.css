@@ -7,6 +7,10 @@
 
 /* custom @apply here */
 
+html {
+  overflow-x: hidden;
+}
+
 h1,
 h2 {
   @apply uppercase;
@@ -15,8 +19,8 @@ h2 {
     line-height: 117px;
   }
   @media (min-width: 1280px) {
-    font-size: 80px;
-    line-height: 90px;
+    font-size: 74px;
+    line-height: 80px;
   }
   font-size: 55px;
   line-height: 68px;
@@ -29,6 +33,13 @@ h2 {
 
 h1 {
   @apply text-title-blue; /* color */
+  margin-top: 4rem;
+}
+
+.sistema ._blurGroup {
+  @media (max-width: 1640px) {
+    top: -7rem;
+  }
 }
 
 h4 {
@@ -70,6 +81,14 @@ p:last-child {
   @apply border-cyan-selected;
   @apply text-cyan-selected;
   box-shadow: inset 0px 0px 0px 1px #00a9a5; /* border-radius não anima direito */
+}
+
+._offset {
+  height: 20vh;
+}
+
+._titlesSm {
+  z-index: -1;
 }
 
 ._contact-form {

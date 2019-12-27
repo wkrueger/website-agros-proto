@@ -79,9 +79,7 @@ export function Content({ contentMd, iconsRow, ...rest }: ContentProps & Record<
   return (
     <>
       <div className="_content-text" {...rest}>
-        <div className="hidden lg:block" style={{ height: '200px' }}>
-          &nbsp;
-        </div>
+        <div className="hidden lg:block _offset">&nbsp;</div>
         <Markdown source={contentMd} />
         {iconsRow || null}
       </div>
