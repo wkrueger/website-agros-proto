@@ -168,7 +168,6 @@ html#simfaz_site {
 #empresa ._leading {
   height: 1090px;
 }
-/* purgecss end ignore */
 
 @media (min-width: 1023px) {
   section {
@@ -252,3 +251,5 @@ html#simfaz_site {
 ._leadingcol {
   z-index: -1;
 }
+
+/* purgecss end ignore */
