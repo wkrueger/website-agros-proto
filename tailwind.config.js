@@ -8,8 +8,8 @@ module.exports = {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      xl: '1140px',
-      xxl: '1640px'
+      xl: '1140px', // 1280px menos 70px de margem
+      xxl: '1640px' // fullhd menos 140px de margem
     },
     borderRadius: {
       none: '0',
